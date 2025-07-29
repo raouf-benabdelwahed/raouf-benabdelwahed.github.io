@@ -41,6 +41,9 @@ section {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
+section p{
+  margin-bottom: 2%;
+}
 
 section:hover {
   transform: translateY(-3px);
