@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Java POO – Module 3</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f7f9fc; }
+    h1 { color: #003366; }
+    .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .question h3 { margin-top: 0; }
+    button { background: #003366; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0055aa; }
+    #result { margin-top: 20px; padding: 15px; background: #e6f7ff; border: 1px solid #0099cc; border-radius: 8px; display:none; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Quiz – Programmation Orientée Objet en Java</h1>
+
+  <form id="quizForm">
+
+    <!-- Questions de base -->
+    <div class="question">
+      <h3>1. En Java, une classe est :</h3>
+      <label><input type="radio" name="q1" value="a"> Une instance d’un objet</label><br>
+      <label><input type="radio" name="q1" value="b"> Un plan qui définit attributs et méthodes</label><br>
+      <label><input type="radio" name="q1" value="c"> Un type de variable primitive</label>
+    </div>
+
+    <div class="question">
+      <h3>2. Que signifie l’encapsulation ?</h3>
+      <label><input type="radio" name="q2" value="a"> Rendre tous les attributs publics</label><br>
+      <label><input type="radio" name="q2" value="b"> Masquer les détails internes d’une classe et contrôler l’accès via getters/setters</label><br>
+      <label><input type="radio" name="q2" value="c"> Définir plusieurs constructeurs</label>
+    </div>
+
+    <div class="question">
+      <h3>3. Quelle est la sortie de ce programme ?</h3>
+      <pre>
+class Employe {
+  int salaire = 1000;
+  int calculerSalaire() { return salaire; }
+}
+public class Main {
+  public static void main(String[] args) {
+    Employe e = new Employe();
+    System.out.println(e.calculerSalaire());
+  }
+}
+      </pre>
+      <label><input type="radio" name="q3" value="a"> Erreur de compilation</label><br>
+      <label><input type="radio" name="q3" value="b"> 0</label><br>
+      <label><input type="radio" name="q3" value="c"> 1000</label>
+    </div>
+
+    <div class="question">
+      <h3>4. Que permet le mot-clé <code>static</code> en Java ?</h3>
+      <label><input type="radio" name="q4" value="a"> Partager un attribut ou une méthode entre toutes les instances</label><br>
+      <label><input type="radio" name="q4" value="b"> Définir une méthode abstraite</label><br>
+      <label><input type="radio" name="q4" value="c"> Créer automatiquement un constructeur</label>
+    </div>
+
+    <div class="question">
+      <h3>5. Une surcharge de méthode (overloading) signifie :</h3>
+      <label><input type="radio" name="q5" value="a"> Redéfinir une méthode héritée dans une sous-classe</label><br>
+      <label><input type="radio" name="q5" value="b"> Créer plusieurs méthodes avec le même nom mais des paramètres différents</label><br>
+      <label><input type="radio" name="q5" value="c"> Utiliser une méthode privée dans une classe</label>
+    </div>
+
+    <!-- Nouvelles questions avancées -->
+    <div class="question">
+      <h3>6. Que se passe-t-il si un constructeur n’est pas défini explicitement dans une classe ?</h3>
+      <label><input type="radio" name="q6" value="a"> La classe ne pourra pas être instanciée</label><br>
+      <label><input type="radio" name="q6" value="b"> Le compilateur génère automatiquement un constructeur par défaut sans paramètres</label><br>
+      <label><input type="radio" name="q6" value="c"> Une erreur de compilation est levée</label>
+    </div>
+
+    <div class="question">
+      <h3>7. Dans le code suivant, quelle valeur sera affichée ?</h3>
+      <pre>
+class Employe {
+  static int nbEmployes = 0;
+  Employe() { nbEmployes++; }
+}
+public class Main {
+  public static void main(String[] args) {
+    new Employe();
+    new Employe();
+    System.out.println(Employe.nbEmployes);
+  }
+}
+      </pre>
+      <label><input type="radio" name="q7" value="a"> 0</label><br>
+      <label><input type="radio" name="q7" value="b"> 1</label><br>
+      <label><input type="radio" name="q7" value="c"> 2</label>
+    </div>
+
+    <div class="question">
+      <h3>8. Quelle est la différence principale entre attributs d’instance et attributs <code>static</code> ?</h3>
+      <label><input type="radio" name="q8" value="a"> Les attributs d’instance sont partagés, les statiques ne le sont pas</label><br>
+      <label><input type="radio" name="q8" value="b"> Les attributs d’instance appartiennent à chaque objet, les statiques appartiennent à la classe entière</label><br>
+      <label><input type="radio" name="q8" value="c"> Les attributs statiques ne peuvent contenir que des valeurs numériques</label>
+    </div>
+
+    <div class="question">
+      <h3>9. Que fait ce code ?</h3>
+      <pre>
+class Employe {
+  private String nom;
+  public Employe(String nom){ this.nom = nom; }
+  public String getNom(){ return nom; }
+}
+public class Main {
+  public static void main(String[] args) {
+    Employe e = new Employe("Aicha");
+    System.out.println(e.nom);
+  }
+}
+      </pre>
+      <label><input type="radio" name="q9" value="a"> Affiche "Aicha"</label><br>
+      <label><input type="radio" name="q9" value="b"> Erreur de compilation (attribut privé)</label><br>
+      <label><input type="radio" name="q9" value="c"> Null</label>
+    </div>
+
+    <div class="question">
+      <h3>10. Quelle est la bonne pratique pour protéger les données d’une classe ?</h3>
+      <label><input type="radio" name="q10" value="a"> Déclarer tous les attributs en public</label><br>
+      <label><input type="radio" name="q10" value="b"> Déclarer les attributs en private et fournir des getters/setters</label><br>
+      <label><input type="radio" name="q10" value="c"> Éviter d’utiliser des constructeurs</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Valider mes réponses</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: "b",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b",
+        q6: "b",
+        q7: "c",
+        q8: "b",
+        q9: "b",
+        q10: "b"
+      };
+
+      let score = 0;
+      let output = "<h2>Résultats</h2>";
+
+      for (let q in answers) {
+        const userAnswer = document.querySelector(`input[name="${q}"]:checked`);
+        if (!userAnswer) {
+          output += `<p>${q}: <span class="wrong">Pas de réponse</span></p>`;
+          continue;
+        }
+        if (userAnswer.value === answers[q]) {
+          score++;
+          output += `<p>${q}: <span class="correct">Bonne réponse</span></p>`;
+        } else {
+          output += `<p>${q}: <span class="wrong">Mauvaise réponse</span> (bonne réponse : ${answers[q]})</p>`;
+        }
+      }
+
+      output += `<h3>Score final : ${score} / ${Object.keys(answers).length}</h3>`;
+      document.getElementById("result").innerHTML = output;
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+</body>
+</html>
